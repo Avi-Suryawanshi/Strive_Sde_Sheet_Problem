@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        int lsf=INT_MAX;
+        int cp=0;        // current day profit
+        int mxprofit=0; //overall profit
+        
+        for(int i=0;i<prices.size();i++)
+        {
+        if(prices[i]<lsf) // if we found new buy value which is more smaller then previous one
+            {
+                lsf=prices[i]; // update our least so far
+            }
+            cp=prices[i]-lsf; // calculating profit if sold today by, Buy - sell
+            if(mxprofit<cp)   // if cp is more then our previous overall profit
+            {
+                mxprofit=cp; // update overall profit
+            }
+        }
+        return mxprofit;
+    }
+};
